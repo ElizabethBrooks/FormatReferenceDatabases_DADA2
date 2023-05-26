@@ -1,8 +1,4 @@
 #!/bin/bash
-#$ -M ebrooks5@nd.edu
-#$ -m abe
-#$ -r n
-#$ -N taxonDriver_jobOutput
 
 # creator: Elizabeth Brooks
 # e-mail: ebrooks5@nd.edu
@@ -15,7 +11,7 @@
 # https://benjjneb.github.io/dada2/training.html
 # https://ucedna.com/reference-databases-for-metabarcoding 
 
-# usage: qsub formattingCustomDatabases_driver.sh
+# usage: bash formattingCustomDatabases_driver.sh
 
 # set working directory with input files
 workingDir="/scratch365/ebrooks5/taxonAssign_DADA2"
