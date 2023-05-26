@@ -36,6 +36,9 @@ cat $inDB | tr ' ' '\t' > $tmpDB
 # remove all new lines, and add newlines back just before each sequence >
 cat $inRef | sed -e 's/$/@/' | tr -d '\n' | sed 's/>/\n>/g' > $tmpRef
 
+# pre-clean up
+rm $tmpRef"."*
+
 # split the temporary singleline fasta into smaller subsets
 # of sequences for each job run
 # total seqeunces / 8 jobs = number of sequences per job
@@ -53,4 +56,4 @@ for i in $tmpRef"."*; do
 done
 
 # combine the subsets of fasta files
-#cat $tmpRef"."* > $outRef
+#cat $outRef"."* > $outRef
