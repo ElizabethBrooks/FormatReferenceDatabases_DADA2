@@ -63,4 +63,4 @@ rm $tmpRef
 rm $tmpDB
 
 # output a status message
-echo "Analysis complete!"
+echo "Analysis complete for $subsetTag !"

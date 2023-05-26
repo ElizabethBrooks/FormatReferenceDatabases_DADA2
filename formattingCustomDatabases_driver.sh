@@ -1,4 +1,8 @@
 #!/bin/bash
+#$ -M ebrooks5@nd.edu
+#$ -m abe
+#$ -r n
+#$ -N taxonDriver_jobOutput
 
 # creator: Elizabeth Brooks
 # e-mail: ebrooks5@nd.edu
@@ -11,7 +15,7 @@
 # https://benjjneb.github.io/dada2/training.html
 # https://ucedna.com/reference-databases-for-metabarcoding 
 
-# usage: bash formattingCustomDatabases_driver.sh
+# usage: qsub formattingCustomDatabases_driver.sh
 
 # set working directory with input files
 workingDir="/scratch365/ebrooks5/taxonAssign_DADA2"
@@ -39,8 +43,11 @@ cat $inDB | tr ' ' '\t' > $tmpDB
 # remove all new lines, and add newlines back just before each sequence >
 cat $inRef | sed -e 's/$/@/' | tr -d '\n' | sed 's/>/\n>/g' > $tmpRef
 
-# split the temporary singleline fasta into smaller subsets of sequences
-split -l 1000 $tmpRef $tmpRef"."
+# split the temporary singleline fasta into smaller subsets
+# of sequences for each job run
+# total seqeunces / 8 jobs = number of sequences per job
+# 2017311/8 = 252163
+split -l 253000 $tmpRef $tmpRef"."
 
 # loop over each segment
 for i in $tmpRef"."*; do
