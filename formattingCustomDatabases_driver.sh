@@ -49,19 +49,12 @@ split -l 253000 $tmpRef $tmpRef"."
 # loop over each segment
 for i in $tmpRef"."*; do
 	# retrieve subset tag
-	subsetTag=$(basename $i | sed 's/CO1\_\.fasta\.//g')
+	subsetTag=$(basename $i | sed 's/tmp\_CO1\_\.fasta\.//g')
 	# output status message
 	echo "Starting analysis for subset $subsetTag ..."
 	# generate Ka and Ks values for protein sequences
-	qsub -N "taxonAssign_"$subsetTag formattingCustomDatabases_assignTaxonomy.sh $workingDir $subsetTag
+	qsub formattingCustomDatabases_assignTaxonomy.sh $workingDir $subsetTag
 done
 
-# wait for the jobs to finish running
-# using the current working directory
-qsub -hold_jid "taxonAssign_"* -cwd
-
 # combine the subsets of fasta files
-cat $tmpRef"."* > $outRef
-
-# output a status message
-echo "Analysis complete!"
+#cat $tmpRef"."* > $outRef
