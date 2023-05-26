@@ -20,19 +20,16 @@
 # set working directory with input files
 workingDir="/scratch365/ebrooks5/taxonAssign_DADA2"
 
-# change to the working directory
-cd $workingDir
-
 # set input file names
-inRef="CO1_.fasta"
-inDB="CO1_taxonomy.txt"
+inRef=$workingDir"/CO1_.fasta"
+inDB=$workingDir"/CO1_taxonomy.txt"
 
 # set output fasta file name
-outRef="CO1_taxonomyAssignment.fasta"
+outRef=$workingDir"/CO1_taxonomyAssignment.fasta"
 
 # set temporary file names
-tmpRef="tmp_CO1_.fasta"
-tmpDB="tmp_CO1_taxonomy.txt"
+tmpRef=$workingDir"/tmp_CO1_.fasta"
+tmpDB=$workingDir"/tmp_CO1_taxonomy.txt"
 
 # prepare a temporary CO1_taxonomy.txt file by replacing white spaces with tabs
 # since the third column of taxonomic assignment is space separated

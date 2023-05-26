@@ -19,22 +19,19 @@
 # set working directory with input files
 workingDir=$1
 
-# change to the working directory
-cd $workingDir
-
 # set the subset tag for the split fasta file
 subsetTag=$2
 
 # set output fasta file name
-outRef="CO1_taxonomyAssignment.fasta."$subsetTag
+outRef=$workingDir"/CO1_taxonomyAssignment.fasta."$subsetTag
 
 # set temporary file names
-tmpRef="tmp_CO1_.fasta."$subsetTag
-tmpDB="tmp_CO1_taxonomy.txt."$subsetTag
+tmpRef=$workingDir"/tmp_CO1_.fasta."$subsetTag
+tmpDB=$workingDir"/tmp_CO1_taxonomy.txt."$subsetTag
 
 # make a coppy of the temporary CO1_taxonomy.txt file for the current subset
 # in order to avoid conflicts between the scripts running on each subset
-cp "tmp_CO1_taxonomy.txt" $tmpDB
+cp $workingDir"/tmp_CO1_taxonomy.txt" $tmpDB
 
 # make sure a previous output fasta does not exsist
 rm $outRef
