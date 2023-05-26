@@ -14,7 +14,7 @@
 # usage: bash formattingCustomDatabases_driver.sh
 
 # set working directory with input files
-workingDir="/Users/bamflappy/Downloads"
+workingDir="/scratch365/ebrooks5/taxonAssign_DADA2"
 
 # change to the working directory
 cd $workingDir
