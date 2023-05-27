@@ -42,7 +42,7 @@ rm $tmpRef"."*
 # split the temporary singleline fasta into smaller subsets
 # of sequences for each job run
 # total seqeunces / 8 jobs = number of sequences per job
-# 2017311/8 = 252163
+# 2017311 / 8 = 252163
 split -l 253000 $tmpRef $tmpRef"."
 
 # loop over each segment
